@@ -8,6 +8,7 @@ const fetchData = async () => {
 };
 fetchData().then($=>{
     let dates=[];
+    let subjects = [];
     let dateElements=$('th');//this gets the date column
     dateElements.each((i,d)=>{//for every date column
         if(i<6)//we skip the first few cause they don't look like exams with proper dates
@@ -16,24 +17,33 @@ fetchData().then($=>{
 
         let exams=[];//getting ready to store all exams on that day
         for(let i=1;i<d.parent.children.length;i++){//jump to parent and read all exams on date. skip first cause thats the date
-            let exam={};
+            let exam = {};//the tag of the parent is <tr>
             exam.examsRunning=[];
 
-            let element=d.parent.children[i];
-            for (let j = 0; j < element.children.length; j++) {//read exams at time
-                console.log(element.children[j]);
+            let element = d.parent.children[i];//from tr to td
+            let arr = element.children; //from td to p
+            arr = arr.filter(val => {
+
+                return $(val).text().replace(/\s\s+/g, ' ').trim() !== "";//filter out invalid exams, they have to be a tag <p> of the tag <td>
+            });
+            for (let j = 0; j < arr.length; j++) {//read exams at time
+                let examLine = $(arr[j]);
+                let examText = examLine.text().replace(/\s\s+/g, ' ').trim();
+                if (examText === 'This examination commences with a 5-minute reading period.')//ignore this thing
+                    continue;
                 if(j===0)
                 {
-                    exam.time=$(element.children[j]).text().replace(/\s\s+/g, ' ').trim();
-                    if(exam.time.includes('Melbourne')){
+                    exam.time = examText;
+
+                    if (exam.time.includes('Melbourne')) {//skip the public holiday thing
                         console.log("foo");
                     }
                     continue;
                 }
-                let text=$(element.children[j]).text().replace(/\s\s+/g, ' ').trim();
-                if(text==='This examination commences with a 5-minute reading period.')
-                    continue;
-                exam.examsRunning.push(text);
+                if (!subjects.includes(examText.replace(/Examination \d/, '').trim()))//push new subjects aswell, ignore the exam x thing, cause math subjects have it
+                    subjects.push(examText.replace(/Examination \d/, '').trim());
+
+                exam.examsRunning.push(examText);
             }
 
             exams.push(exam);
@@ -47,5 +57,6 @@ fetchData().then($=>{
 
     });
     console.log(dates);
+    console.log(subjects);
 
 });
