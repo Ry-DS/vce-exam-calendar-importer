@@ -13,7 +13,7 @@ fetchData().then($=>{
     dateElements.each((i,d)=>{//for every date column
         if(i<6)//we skip the first few cause they don't look like exams with proper dates
             return;
-        let date=$(d).text().replace(/\s\s+/g, ' ');//get the date text and clean it up
+        let date = cleanup($(d).text());//get the date text and clean it up
 
         let exams=[];//getting ready to store all exams on that day
         for(let i=1;i<d.parent.children.length;i++){//jump to parent and read all exams on date. skip first cause thats the date
@@ -24,19 +24,19 @@ fetchData().then($=>{
             let arr = element.children; //from td to p
             arr = arr.filter(val => {
 
-                return $(val).text().replace(/\s\s+/g, ' ').trim() !== "";//filter out invalid exams, they have to be a tag <p> of the tag <td>
+                return cleanup($(val).text()) !== "";//filter out invalid exams, they have to not be an empty line
             });
             for (let j = 0; j < arr.length; j++) {//read exams at time
                 let examLine = $(arr[j]);
-                let examText = examLine.text().replace(/\s\s+/g, ' ').trim();
+                let examText = cleanup(examLine.text());
                 if (examText === 'This examination commences with a 5-minute reading period.')//ignore this thing
                     continue;
                 if(j===0)
                 {
                     exam.time = examText;
 
-                    if (exam.time.includes('Melbourne')) {//skip the public holiday thing
-                        console.log("foo");
+                    if (exam.time.includes('Melbourne')) {
+                        console.log("foo");//little fun place to put a breakpoint, idk why anymore
                     }
                     continue;
                 }
@@ -60,3 +60,7 @@ fetchData().then($=>{
     console.log(subjects);
 
 });
+
+function cleanup(string) {
+    return string.replace(/\s\s+/g, ' ').trim();
+}
