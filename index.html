@@ -4,16 +4,40 @@
     <meta charset="UTF-8">
     <title>VCE Exam Timetable Importer 2019</title>
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
 </head>
 <body>
-<h1>Hello!</h1>
-<a href="https://calendar.google.com/calendar/r/settings/export?pli=1">Export Link</a>
+<div class="main">
+    <div class="container text-center" style="display: block">
+        <h1>VCE Calendar Importer</h1>
+        <a href="https://calendar.google.com/calendar/r/settings/export?pli=1">Export Link</a>
+
+        <select class="selectpicker" data-live-search="true" multiple>
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </select>
 
 
+    </div>
+
+</div>
+
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 <!--Also includes Popper-->
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 <!--Calendar Stuff-->
 <script src="js/ics.min.js" type="text/javascript"></script>
+
+<script src="node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('select').selectpicker();
+    });
+</script>
 
 </body>
 </html>
