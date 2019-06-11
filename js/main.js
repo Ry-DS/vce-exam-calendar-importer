@@ -57,9 +57,9 @@ function sendCalendarFile(values) {
         EXAMS.dates.forEach(date => {
             date.exams.forEach(examSlot => {
                 examSlot.examsRunning.forEach(exam => {
-                    if (exam === subject || exam.includes(subject) && exam.includes("Exam")) {//only be a little lenient if 'exam' is in the exam name e.g Examination 1, math subjects make use of this
+                    if (exam === subject || (exam.includes(subject) && exam.includes("Exam"))) {//only be a little lenient if 'exam' is in the exam name e.g Examination 1, math subjects make use of this
                         examTimes.push({
-                            name: exam.includes("Exam") ? exam : exam + " Exam",
+                            name: exam.includes("Exam") ? exam : exam + " Exam",//append exam to name if it isn't already there, applies to anything that's not a math subject
                             startTime: examSlot.isoTime[0],
                             endTime: examSlot.isoTime[1]
                         });
@@ -70,17 +70,17 @@ function sendCalendarFile(values) {
 
 
     });
-    console.log(examTimes);
+    //start making timetable
     let calendar = ics();
     examTimes.forEach(exam => {
+        //generating description with length of exam
         let diffMs = (new Date(exam.endTime) - new Date(exam.startTime)); // milliseconds between now & Christmas
         let diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
         let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-        console.log(`${diffMs} ${diffMins} ${diffHrs}`);
         let desc = "This exam is" + (diffHrs > 0 ? " " + diffHrs + " hr" + (diffHrs === 1 ? "" : "s") : "") + (diffMins > 0 ? " " + diffMins + " min" : "") + " long";
-        console.log(desc);
-        calendar.addEvent(exam.name, desc, null, exam.startTime, exam.endTime);
+        calendar.addEvent(exam.name, desc, 'Unknown', exam.startTime, exam.endTime);
     });
-    calendar.download("VCE-Calendar");
+    calendar.download("VCE-Calendar");//send finished timetable to user!
+
 
 }

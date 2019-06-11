@@ -18,13 +18,51 @@
         </select>
         </div>
         <div style="margin: 10px">
-            <button class="btn btn-primary" disabled id="create-btn">Create my Personalised Calendar!</button>
+            <button class="btn btn-primary" data-target="#finished-modal" data-toggle="modal" disabled id="create-btn">
+                Create my Personalised Calendar!
+            </button>
         </div>
-        <a href="https://calendar.google.com/calendar/r/settings/export?pli=1">Export Link</a>
+
 
 
     </div>
 
+</div>
+<div aria-hidden="true" aria-labelledby="modalLabel" class="modal fade" id="finished-modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel"><b>Awesome! I got my ICS File! Now what?</b></h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                In order to use your new calendar, you need to import it into whichever calendar app you use.
+                <h4>If you use Windows Calendar or Outlook</h4>
+                Great! Just double click the file and you are good to go!<br>
+                If you don't have Outlook/Calendar installed and would prefer to do it online, use the guide linked
+                below to learn how to import a ICS file to your outlook account online.<br><br>
+                <a class="btn btn-primary"
+                   href="https://support.office.com/en-us/article/import-or-subscribe-to-a-calendar-in-outlook-on-the-web-503ffaf6-7b86-44fe-8dd6-8099d95f38df"
+                   target="_blank">Importing Calendars in Outlook</a>
+                <h4>If you use Google Calendar</h4>
+                You will need to import the file you just downloaded into Google Calendar. Press the button below to
+                access Google's ICS import page.
+                From there, just upload your new ICS file and you are set!<br><br>
+                <a class="btn btn-success" href="https://calendar.google.com/calendar/r/settings/export?pli=1"
+                   target="_blank">Import Calendar</a>
+                <h4>What's an ICS?</h4>
+                ICS is short for iCalendar. They are plain text files that include calendar event details like a
+                description, beginning and ending times, location, etc.
+                Therefore, they make the perfect medium to distribute crucial dates to a large audience. Maybe VCAA
+                could take a page from this system?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
