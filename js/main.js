@@ -45,6 +45,8 @@ function init() {
     });
     //add button click listener
     $('#create-btn').click(() => sendCalendarFile(selector.val()));
+    //init the picker, all data is now inside
+    $("#subject-selector").selectpicker();
 
 
 }
