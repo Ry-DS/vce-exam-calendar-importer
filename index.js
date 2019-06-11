@@ -1,3 +1,5 @@
+//run this with node to generate data.json file. Then, this file will be used by the website to generate ics files.
+
 //consts
 const siteUrl = "https://www.vcaa.vic.edu.au/administration/Key-dates/Pages/VCE-exam-timetable.aspx";
 const axios = require("axios");
@@ -22,7 +24,7 @@ fetchData().then($=>{
         let date = cleanup($(d).text());//get the date text and clean it up
 
         let exams=[];//getting ready to store all exams on that day
-        for(let i=1;i<d.parent.children.length;i++){//jump to parent and read all exams on date. skip first cause thats the date
+        for(let i=1; i<d.parent.children.length; i++){//jump to parent and read all exams on date. skip first cause thats the date
             let exam = {};//the tag of the parent is <tr>
             exam.examsRunning=[];
 
@@ -37,8 +39,7 @@ fetchData().then($=>{
                 let examText = cleanup(examLine.text());
                 if (examText === 'This examination commences with a 5-minute reading period.')//ignore this thing
                     continue;
-                if(j===0)
-                {
+                if(j===0) {
                     exam.time = examText;
                     exam.isoTime = parseTime(examText, date);
                     if (exam.time.includes('Melbourne')) {

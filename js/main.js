@@ -14,8 +14,9 @@ $.getJSON('data.json', function (data) {
 
 function init() {
     let selector = $('#subject-selector');
-    for (let key in CATEGORIES) {//setting up categories subjects in selector
+    for (let key in CATEGORIES) {//setting up categories in selector
         let subjects = CATEGORIES[key];
+        subjects.sort();
         let html = [];
         subjects.forEach(subject => {
             html.push(`<option>${subject}</option>`)
@@ -26,6 +27,7 @@ function init() {
     }
     //chuck rest under other
     let html = [];
+    EXAMS.subjects.sort();
     EXAMS.subjects.forEach(subject => {
         for (let key in CATEGORIES) {
             if (CATEGORIES[key].includes(subject))
@@ -35,6 +37,50 @@ function init() {
 
     });
     selector.append(`<optgroup label="Other">${html.join("\\n")}</optgroup>`);
+    //disable and enable button when needed
+    selector.on('changed.bs.select', () => {
+        if (selector.val().length > 0) {
+            $('#create-btn').prop('disabled', false);
+        } else $('#create-btn').prop('disabled', true);
+    });
+    //add button click listener
+    $('#create-btn').click(() => sendCalendarFile(selector.val()));
 
+
+}
+
+function sendCalendarFile(values) {
+    //one mistake i made is indexing the data.json by date. Now more stuff is needed to find the exam in the file.
+    //oh well
+    let examTimes = [];
+    values.forEach(subject => {
+        EXAMS.dates.forEach(date => {
+            date.exams.forEach(examSlot => {
+                examSlot.examsRunning.forEach(exam => {
+                    if (exam === subject || exam.includes(subject) && exam.includes("Exam")) {//only be a little lenient if 'exam' is in the exam name e.g Examination 1, math subjects make use of this
+                        examTimes.push({
+                            name: exam.includes("Exam") ? exam : exam + " Exam",
+                            startTime: examSlot.isoTime[0],
+                            endTime: examSlot.isoTime[1]
+                        });
+                    }
+                });
+            });
+        });
+
+
+    });
+    console.log(examTimes);
+    let calendar = ics();
+    examTimes.forEach(exam => {
+        let diffMs = (new Date(exam.endTime) - new Date(exam.startTime)); // milliseconds between now & Christmas
+        let diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+        let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+        console.log(`${diffMs} ${diffMins} ${diffHrs}`);
+        let desc = "This exam is" + (diffHrs > 0 ? " " + diffHrs + " hr" + (diffHrs === 1 ? "" : "s") : "") + (diffMins > 0 ? " " + diffMins + " min" : "") + " long";
+        console.log(desc);
+        calendar.addEvent(exam.name, desc, null, exam.startTime, exam.endTime);
+    });
+    calendar.download("VCE-Calendar");
 
 }
