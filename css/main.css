@@ -23,6 +23,8 @@ footer {
     z-index: -1;
 }
 
+
+/*https://github.com/tholman/github-corners*/
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
 }
