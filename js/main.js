@@ -50,7 +50,8 @@ function init() {
     //add button click listener
     $('#create-btn').click(() => sendCalendarFile(selector.val()));
     //init the picker, all data is now inside
-    selector.selectpicker('refresh');
+    setTimeout(() => selector.selectpicker('refresh'), 200);//give time for DOM to refresh
+
 
 
 }
