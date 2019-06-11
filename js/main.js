@@ -39,9 +39,8 @@ function init() {
 
     });
     selector.append(`<optgroup label="Other">${html.join("\\n")}</optgroup>`);
-    //init the picker, all data is now inside
 
-    selector.selectpicker();
+
     //disable and enable button when needed
     selector.on('changed.bs.select', () => {
         if (selector.val().length > 0) {
@@ -50,6 +49,8 @@ function init() {
     });
     //add button click listener
     $('#create-btn').click(() => sendCalendarFile(selector.val()));
+    //init the picker, all data is now inside
+    selector.selectpicker('refresh');
 
 
 }
