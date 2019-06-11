@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Magra);
 body {
     height: 100%;
     display: flex;
@@ -11,4 +12,12 @@ body {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+footer {
+    position: absolute;
+    top: 100%;
+    margin-top: -3.5em;
+    text-align: center;
+    font-family: "Magra";
 }
