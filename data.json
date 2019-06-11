@@ -1,0 +1,632 @@
+{
+  "dates": [
+    {
+      "date": "Monday 28 October",
+      "exams": [
+        {
+          "examsRunning": [
+            "Classical Hebrew"
+          ],
+          "time": "9.25am–12.30pm",
+          "isoTime": [
+            "2019-10-27T22:25:00.000Z",
+            "2019-10-28T01:30:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Wednesday 30 October",
+      "exams": [
+        {
+          "examsRunning": [
+            "English",
+            "English as an Additional Language (EAL)"
+          ],
+          "time": "9.00am–12.15pm",
+          "isoTime": [
+            "2019-10-29T22:00:00.000Z",
+            "2019-10-30T01:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Thursday 31 October",
+      "exams": [
+        {
+          "examsRunning": [
+            "Psychology"
+          ],
+          "time": "9.00am–11.45am",
+          "isoTime": [
+            "2019-10-30T22:00:00.000Z",
+            "2019-10-31T00:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "English Language"
+          ],
+          "time": "2.00pm–4.15pm",
+          "isoTime": [
+            "2019-10-31T03:00:00.000Z",
+            "2019-10-31T05:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Friday 1 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Biology"
+          ],
+          "time": "9.00am–11.45am",
+          "isoTime": [
+            "2019-10-31T22:00:00.000Z",
+            "2019-11-01T00:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Further Mathematics Examination 1"
+          ],
+          "time": "2.00pm–3.45pm",
+          "isoTime": [
+            "2019-11-01T03:00:00.000Z",
+            "2019-11-01T04:45:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Monday 4 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Further Mathematics Examination 2"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-03T22:00:00.000Z",
+            "2019-11-03T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Latin"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-04T00:45:00.000Z",
+            "2019-11-04T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Business Management",
+            "Indigenous Languages of Victoria"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-04T04:00:00.000Z",
+            "2019-11-04T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Tuesday 5 November",
+      "exams": [
+        {
+          "examsRunning": [],
+          "time": "Melbourne Cup Public Holiday",
+          "isoTime": [
+            "2019-11-04T13:00:00.000Z",
+            "2019-11-04T13:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Classical Greek"
+          ],
+          "time": "1.55pm–5.00pm",
+          "isoTime": [
+            "2019-11-05T02:55:00.000Z",
+            "2019-11-05T06:00:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Wednesday 6 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Mathematical Methods Examination 1"
+          ],
+          "time": "9.00am–10.15am",
+          "isoTime": [
+            "2019-11-05T22:00:00.000Z",
+            "2019-11-05T23:15:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Product Design and Technology",
+            "VET Hospitality"
+          ],
+          "time": "11.45am–1.30pm",
+          "isoTime": [
+            "2019-11-06T00:45:00.000Z",
+            "2019-11-06T02:30:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "History: Revolutions",
+            "Industry and Enterprise"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-06T04:00:00.000Z",
+            "2019-11-06T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Thursday 7 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Drama",
+            "VET Hospitality: Kitchen Operations"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-06T22:00:00.000Z",
+            "2019-11-06T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Philosophy",
+            "Physical Education"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-07T00:45:00.000Z",
+            "2019-11-07T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Mathematical Methods Examination 2",
+            "Sociology"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-07T04:00:00.000Z",
+            "2019-11-07T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Friday 8 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Specialist Mathematics Examination 1"
+          ],
+          "time": "9.00am–10.15am",
+          "isoTime": [
+            "2019-11-07T22:00:00.000Z",
+            "2019-11-07T23:15:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Accounting",
+            "Environmental Science",
+            "History: Ancient History"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-08T00:45:00.000Z",
+            "2019-11-08T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Health and Human Development",
+            "VET Creative and Digital Media (computer-based)"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-08T04:00:00.000Z",
+            "2019-11-08T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Monday 11 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Agricultural and Horticultural Studies",
+            "Food Studies",
+            "VET Information, Digital Media and Technology",
+            "VET Music Industry: Sound Production"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-10T22:00:00.000Z",
+            "2019-11-10T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Chinese Language, Culture and Society",
+            "Literature"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-11T00:45:00.000Z",
+            "2019-11-11T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Outdoor and Environmental Studies",
+            "Specialist Mathematics Examination 2"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-11T04:00:00.000Z",
+            "2019-11-11T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Tuesday 12 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Chemistry"
+          ],
+          "time": "9.00am–11.45am",
+          "isoTime": [
+            "2019-11-11T22:00:00.000Z",
+            "2019-11-12T00:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Legal Studies"
+          ],
+          "time": "2.00pm–4.15pm",
+          "isoTime": [
+            "2019-11-12T03:00:00.000Z",
+            "2019-11-12T05:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Wednesday 13 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Physics"
+          ],
+          "time": "9.00am–11.45am",
+          "isoTime": [
+            "2019-11-12T22:00:00.000Z",
+            "2019-11-13T00:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Dance",
+            "VET Business",
+            "VET Equine Studies",
+            "Visual Communication Design"
+          ],
+          "time": "2.00pm–3.45pm",
+          "isoTime": [
+            "2019-11-13T03:00:00.000Z",
+            "2019-11-13T04:45:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Thursday 14 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Art",
+            "VET Integrated Technologies"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-13T22:00:00.000Z",
+            "2019-11-13T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Economics",
+            "History: Australian History"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-14T00:45:00.000Z",
+            "2019-11-14T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Computing: Software Development",
+            "Japanese First Language",
+            "Texts and Traditions"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-14T04:00:00.000Z",
+            "2019-11-14T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Friday 15 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Studio Arts",
+            "VET Furnishing",
+            "VET Sport and Recreation"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-14T22:00:00.000Z",
+            "2019-11-14T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Chinese First Language",
+            "Geography",
+            "Music Style and Composition"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-15T00:45:00.000Z",
+            "2019-11-15T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Australian Politics",
+            "Classical Studies",
+            "Computing: Informatics"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-15T04:00:00.000Z",
+            "2019-11-15T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Monday 18 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Music Performance",
+            "Systems Engineering",
+            "VET Health"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-17T22:00:00.000Z",
+            "2019-11-17T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Global Politics",
+            "Greek",
+            "Religion and Society"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-18T00:45:00.000Z",
+            "2019-11-18T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Media"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-18T04:00:00.000Z",
+            "2019-11-18T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Tuesday 19 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "Theatre Studies",
+            "VET Community Services",
+            "VET Engineering Studies"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-18T22:00:00.000Z",
+            "2019-11-18T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "German",
+            "Spanish",
+            "Vietnamese First Language",
+            "Vietnamese Second Language"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-19T00:45:00.000Z",
+            "2019-11-19T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Algorithmics",
+            "French"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-19T04:00:00.000Z",
+            "2019-11-19T06:15:00.000Z"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Wednesday 20 November",
+      "exams": [
+        {
+          "examsRunning": [
+            "VET Laboratory Skills"
+          ],
+          "time": "9.00am–10.45am",
+          "isoTime": [
+            "2019-11-19T22:00:00.000Z",
+            "2019-11-19T23:45:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Indonesian First Language",
+            "Indonesian Second Language",
+            "Japanese Second Language"
+          ],
+          "time": "11.45am–2.00pm",
+          "isoTime": [
+            "2019-11-20T00:45:00.000Z",
+            "2019-11-20T03:00:00.000Z"
+          ]
+        },
+        {
+          "examsRunning": [
+            "Chinese Second Language",
+            "Chinese Second Language Advanced",
+            "Italian"
+          ],
+          "time": "3.00pm–5.15pm",
+          "isoTime": [
+            "2019-11-20T04:00:00.000Z",
+            "2019-11-20T06:15:00.000Z"
+          ]
+        }
+      ]
+    }
+  ],
+  "subjects": [
+    "Classical Hebrew",
+    "English",
+    "English as an Additional Language (EAL)",
+    "Psychology",
+    "English Language",
+    "Biology",
+    "Further Mathematics",
+    "Latin",
+    "Business Management",
+    "Indigenous Languages of Victoria",
+    "Classical Greek",
+    "Mathematical Methods",
+    "Product Design and Technology",
+    "VET Hospitality",
+    "History: Revolutions",
+    "Industry and Enterprise",
+    "Drama",
+    "VET Hospitality: Kitchen Operations",
+    "Philosophy",
+    "Physical Education",
+    "Sociology",
+    "Specialist Mathematics",
+    "Accounting",
+    "Environmental Science",
+    "History: Ancient History",
+    "Health and Human Development",
+    "VET Creative and Digital Media (computer-based)",
+    "Agricultural and Horticultural Studies",
+    "Food Studies",
+    "VET Information, Digital Media and Technology",
+    "VET Music Industry: Sound Production",
+    "Chinese Language, Culture and Society",
+    "Literature",
+    "Outdoor and Environmental Studies",
+    "Chemistry",
+    "Legal Studies",
+    "Physics",
+    "Dance",
+    "VET Business",
+    "VET Equine Studies",
+    "Visual Communication Design",
+    "Art",
+    "VET Integrated Technologies",
+    "Economics",
+    "History: Australian History",
+    "Computing: Software Development",
+    "Japanese First Language",
+    "Texts and Traditions",
+    "Studio Arts",
+    "VET Furnishing",
+    "VET Sport and Recreation",
+    "Chinese First Language",
+    "Geography",
+    "Music Style and Composition",
+    "Australian Politics",
+    "Classical Studies",
+    "Computing: Informatics",
+    "Music Performance",
+    "Systems Engineering",
+    "VET Health",
+    "Global Politics",
+    "Greek",
+    "Religion and Society",
+    "Media",
+    "Theatre Studies",
+    "VET Community Services",
+    "VET Engineering Studies",
+    "German",
+    "Spanish",
+    "Vietnamese First Language",
+    "Vietnamese Second Language",
+    "Algorithmics",
+    "French",
+    "VET Laboratory Skills",
+    "Indonesian First Language",
+    "Indonesian Second Language",
+    "Japanese Second Language",
+    "Chinese Second Language",
+    "Chinese Second Language Advanced",
+    "Italian"
+  ],
+  "timeGenerated": "2019-06-10T01:13:04.409Z"
+}
