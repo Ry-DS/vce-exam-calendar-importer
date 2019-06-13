@@ -5,6 +5,9 @@ const CATEGORIES = {
         "Visual Communication Design", "Economics", "Media"]
 
 };
+const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
+    return p.toString() === "[object SafariRemoteNotification]";
+})(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 let EXAMS;//idk how to make this constant if its fetched async
 $.getJSON('data.json', function (data) {
     EXAMS = data;
@@ -85,9 +88,14 @@ function sendCalendarFile(values) {
         let diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
         let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
         let desc = "This exam is" + (diffHrs > 0 ? " " + diffHrs + " hr" + (diffHrs === 1 ? "" : "s") : "") + (diffMins > 0 ? " " + diffMins + " min" : "") + " long";
-        calendar.addEvent(exam.name, desc, 'Unknown', exam.startTime, exam.endTime);
+        calendar.addEvent(exam.name, desc, '', exam.startTime, exam.endTime);
     });
-    calendar.download("VCE-Calendar");//send finished timetable to user!
-
+    if (isSafari) {
+        //have to do this cause download doesn't work on safari
+        window.open("data:text/calendar;charset=utf8," + encodeURI(calendar.build()));
+    } else {
+        calendar.download("VCE-Calendar");//send finished timetable to user!
+        $('#finished-modal').modal('show');
+    }
 
 }
