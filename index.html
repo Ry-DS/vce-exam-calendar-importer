@@ -6,7 +6,11 @@
     <title>VCE Exam Timetable Importer 2019</title>
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
+          rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -30,14 +34,30 @@
         <h1>VCE Calendar Importer</h1>
 
         <div>
-            <select class="selectpicker" data-live-search="true" data-max-options="6"
-                    id="subject-selector" multiple title="Pick your subjects">
+            <select class="fadeIn" id="subject-selector" title="Pick your subjects">
+                <!--                    class="selectpicker" data-live-search="true" data-max-options="6"-->
+
         </select>
         </div>
         <div style="margin: 10px">
             <button class="btn btn-primary" disabled id="create-btn">
                 Create my Personalised Calendar!
             </button>
+            <div class="addeventatc hide" id="ios-add" title="Add to Calendar">
+                Add to Calendar
+                <span class="start">08/19/2019 08:00 AM</span>
+                <span class="end">08/19/2019 10:00 AM</span>
+                <span class="timezone">America/Los_Angeles</span>
+                <span class="title">Summary of the event</span>
+                <span class="description">Description of the event</span>
+                <span class="location">Location of the event</span>
+            </div>
+            <div class="hide" id="ios-info">
+                <p class="fadeIn" style="font-style: italic;margin-top: 10px">Did you know?</p>
+                <p class="fadeIn" style="margin: 0 auto;width: 75%">This website works better on other devices</p>
+                <a class="fadeIn" data-target="#ios-learn-more-modal" data-toggle="modal"
+                   style="margin: 0 auto;width: 50%;cursor:pointer">Learn more</a>
+            </div>
         </div>
 
 
@@ -46,12 +66,36 @@
 
 </div>
 
-
+<div aria-hidden="true" aria-labelledby="modalLabel" class="modal fade" id="ios-learn-more-modal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><b>Why isn't IOS supported?</b></h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">Due to how Apple handles downloads, it is not possible to add multiple events at
+                once as doing this would require the use of an ICS file.
+                An ICS file is a special calendar file which allows people to share events with others conveniently.
+                Apple limits what you can download, hence finding a way to implement this feature for Apple users isn't
+                easy.<br><br>
+                For now, the best I can do is let you add your events one by one using a special Google calendar link.
+                <br>
+                <b>If you wish to add all your exams at once, or use a calendar app other than Google, try using this
+                    website on something other than an iOS device</b></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div aria-hidden="true" aria-labelledby="modalLabel" class="modal fade" id="finished-modal" role="dialog" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel"><b>Awesome! I got my ICS File! Now what?</b></h5>
+                <h5 class="modal-title"><b>Awesome! I got my ICS File! Now what?</b></h5>
                 <button aria-label="Close" class="close" data-dismiss="modal" type="button">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -91,30 +135,16 @@
 
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+<!-- AddEvent script -->
+<script async defer src="https://addevent.com/libs/atc/1.6.1/atc.min.js" type="text/javascript"></script>
+<script src="js/filesaver.min.js"></script>
+<script src="js/blob.min.js"></script>
+<script src="js/ics.min.js"></script>
+<script src="js/main.js"></script>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/yepnope/1.5.4/yepnope.min.js'></script>
-<script type="text/javascript">
-
-
-    yepnope({
-        test: window.jQuery && window.jQuery.fn.button && window.jQuery.fn.selectpicker,
-        load: [
-            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css',
-            'https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.10/dist/js/bootstrap-select.min.js',
-            'https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.10/dist/css/bootstrap-select.min.css',
-            'js/filesaver.min.js',
-            'js/blob.min.js',
-            'js/ics.min.js',
-            'js/main.js'
-        ],
-        complete: function () {
-            $('#subject-selector').selectpicker();
-
-        }
-    });
-</script>
 
 </body>
 </html>

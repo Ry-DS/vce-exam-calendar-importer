@@ -5,10 +5,7 @@ const CATEGORIES = {
         "Visual Communication Design", "Economics", "Media"]
 
 };
-const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
-    return p.toString() === "[object SafariRemoteNotification]";
-})(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-let EXAMS;//idk how to make this constant if its fetched async
+let EXAMS;
 $.getJSON('data.json', function (data) {
     EXAMS = data;
     Object.freeze(EXAMS);
@@ -16,9 +13,11 @@ $.getJSON('data.json', function (data) {
         init();
     });
 });
-
+//https://stackoverflow.com/questions/9038625/detect-if-device-is-ios
+let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function init() {
     let selector = $('#subject-selector');
+    selector.select2();
     for (let key in CATEGORIES) {//setting up categories in selector
         let subjects = CATEGORIES[key];
         subjects.sort();
@@ -45,15 +44,29 @@ function init() {
 
 
     //disable and enable button when needed
-    selector.on('changed.bs.select', () => {
-        if (selector.val().length > 0) {
+    selector.on('change', () => {
+        if (typeof selector.val() === 'string' || selector.val().length > 0) {
             $('#create-btn').prop('disabled', false);
         } else $('#create-btn').prop('disabled', true);
     });
+    if (isIOS) {
+        $('#create-btn').addClass('hide');
+        $('#ios-info').removeClass('hide');
+        $('.addeventatc').removeClass('hide');
+
+    }
+    selector.val(null);
     //add button click listener
     $('#create-btn').click(() => sendCalendarFile(selector.val()));
+    if (isIOS) {
+        $('#create-btn').text('Add to Google Calendar');
+    }
     //init the picker, all data is now inside
-    setTimeout(() => selector.selectpicker('refresh'), 200);//give time for DOM to refresh
+    setTimeout(() => selector.select2({
+        maximumSelectionLength: 6, placeholder: 'Pick your Subject' + (isIOS ? '' : '(s)')
+        , multiple: !isIOS
+    }), 200);//give time for DOM to refresh
+
 
 
 
@@ -63,7 +76,7 @@ function sendCalendarFile(values) {
     //one mistake i made is indexing the data.json by date. Now more stuff is needed to find the exam in the file.
     //oh well
     let examTimes = [];
-    values.forEach(subject => {
+    let subjectFunction = subject => {
         EXAMS.dates.forEach(date => {
             date.exams.forEach(examSlot => {
                 examSlot.examsRunning.forEach(exam => {
@@ -79,23 +92,36 @@ function sendCalendarFile(values) {
         });
 
 
-    });
+    };
+    if (Array.isArray(values))
+        values.forEach(subjectFunction);
+    else {
+        subjectFunction(values);
+
+    }
     //start making timetable
+    //different behaviour for ios since it doesn't support ics files
+    if (isIOS) {
+        let exam = examTimes[0];
+        let diffMs = (new Date(exam.endTime) - new Date(exam.startTime));
+        let diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+        let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+        let desc = "This exam is" + (diffHrs > 0 ? " " + diffHrs + " hr" + (diffHrs === 1 ? "" : "s") : "") + (diffMins > 0 ? " " + diffMins + " min" : "") + " long";
+        let link = `http://www.google.com/calendar/event?action=TEMPLATE&dates=${new Date(exam.startTime).getUTCDate()}%2F${new Date(exam.endTime).getUTCDate()}&text=${exam.name}&location=&details=${desc}`;
+        console.log(link);
+
+        return;
+    }
     let calendar = ics();
     examTimes.forEach(exam => {
         //generating description with length of exam
-        let diffMs = (new Date(exam.endTime) - new Date(exam.startTime)); // milliseconds between now & Christmas
+        let diffMs = (new Date(exam.endTime) - new Date(exam.startTime));
         let diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
         let diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
         let desc = "This exam is" + (diffHrs > 0 ? " " + diffHrs + " hr" + (diffHrs === 1 ? "" : "s") : "") + (diffMins > 0 ? " " + diffMins + " min" : "") + " long";
         calendar.addEvent(exam.name, desc, '', exam.startTime, exam.endTime);
     });
-    if (isSafari) {
-        //have to do this cause download doesn't work on safari
-        window.open("data:text/calendar;charset=utf8," + encodeURI(calendar.build()));
-    } else {
-        calendar.download("VCE-Calendar");//send finished timetable to user!
-        $('#finished-modal').modal('show');
-    }
+    calendar.download("VCE-Calendar");//send finished timetable to user!
+    $('#finished-modal').modal('show');
 
 }
