@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Magra);
+/*center stuff*/
 body {
     height: 100%;
     display: flex;
@@ -12,6 +13,18 @@ body {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+/*IOS button list*/
+#ios-buttons {
+
+    list-style: none;
+    padding-left: 0;
+    min-height: 5.5em;
+}
+
+#ios-buttons > li {
+    margin: 10px;
 }
 
 footer {
