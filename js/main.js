@@ -23,6 +23,7 @@ const CATEGORIES = {
         EXAMS = data;
         Object.freeze(EXAMS);
         $(function () {
+            $('#update-time').text(new Date(EXAMS.timeGenerated).toDateString())
             init();
         });
     });

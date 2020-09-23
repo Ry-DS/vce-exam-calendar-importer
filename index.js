@@ -30,20 +30,21 @@ fetchData().then($=>{
 
             let element = d.parent.children[i];//from tr to td
             let arr = element.children; //from td to p
+
             arr = arr.filter(val => {
 
                 return cleanup($(val).text()) !== "";//filter out invalid exams, they have to not be an empty line
             });
-            for (let j = 0; j < arr.length; j++) {//read exams with their time on single data
+            for (let j = 0; j < arr.length; j++) {//read exams with their times are the same
                 let examLine = $(arr[j]);
                 let examText = cleanup(examLine.text());
-                if (examText === 'This examination commences with a 5-minute reading period.')//ignore this thing
+                if (examText.startsWith('This examination commences with a') || examText.startsWith('Students are scheduled in'))//ignore these things
                     continue;
-                if(j===0) {
+                if (j === 0) { // times are same, so first one will do.
                     exam.time = examText;
                     exam.isoTime = parseTime(examText, date);
                     if (exam.time.includes('Melbourne')) {
-                        console.log("foo");//little fun place to put a breakpoint, idk why anymore
+                        console.log("foo");// a testing breakpoint, don't remember what its for
                     }
                     continue;
                 }
@@ -71,6 +72,7 @@ fetchData().then($=>{
 });
 
 function cleanup(string) {
+    // removes spaces more than 1 long
     return string.replace(/\s\s+/g, ' ').trim();
 }
 

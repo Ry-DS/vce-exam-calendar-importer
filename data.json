@@ -5,8 +5,7 @@
       "exams": [
         {
           "examsRunning": [
-            "Auslan Sign Comprehension and Sign Production Examination",
-            "Students are scheduled in one two-hour session. Each session is preceded by 10 minutes reading/viewing time."
+            "Auslan Sign Comprehension and Sign Production Examination"
           ],
           "time": "8.00am–6.00pm",
           "isoTime": [
@@ -588,7 +587,6 @@
   ],
   "subjects": [
     "Auslan Sign Comprehension and Sign Production Examination",
-    "Students are scheduled in one two-hour session. Each session is preceded by 10 minutes reading/viewing time.",
     "Classical Hebrew",
     "Classical Greek",
     "English",
@@ -670,5 +668,5 @@
     "Chinese Second Language",
     "Italian"
   ],
-  "timeGenerated": "2020-09-23T00:13:54.922Z"
+  "timeGenerated": "2020-09-23T01:08:22.774Z"
 }
